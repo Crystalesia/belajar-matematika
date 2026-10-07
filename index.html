@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar Matematika Seru!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-blue-50 font-sans min-h-screen">
+    <div class="max-w-4xl mx-auto p-4">
+        <h1 class="text-4xl font-bold text-center text-blue-600 mb-6 drop-shadow-md">🌟 Belajar Matematika Seru! 🌟</h1>
+        
+        <!-- Tabs -->
+        <div class="flex justify-center mb-6 space-x-2">
+            <button id="tab1" class="tab-btn active-tab px-4 py-2 rounded-t-lg font-bold">Operasi Dasar</button>
+            <button id="tab2" class="tab-btn px-4 py-2 rounded-t-lg font-bold">Eksplorasi Pecahan</button>
+            <button id="tab3" class="tab-btn px-4 py-2 rounded-t-lg font-bold">Operasi & Perbandingan Pecahan</button>
+        </div>
+
+        <!-- Content Tab 1: Operasi Dasar -->
+        <div id="content1" class="tab-content bg-white p-6 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-bold text-center mb-4 text-green-500">Berhitung dengan Kelereng</h2>
+            <div class="flex flex-row justify-center items-center space-x-4 mb-4">
+                <input type="number" id="numA" class="w-24 p-2 border-2 border-blue-300 rounded text-center text-xl" placeholder="Angka">
+                <select id="operator1" class="p-2 border-2 border-blue-300 rounded text-center text-xl bg-yellow-100 font-bold">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="x">x</option>
+                    <option value=":">:</option>
+                    <option value=">">&gt;</option>
+                    <option value="<">&lt;</option>
+                    <option value="=">=</option>
+                </select>
+                <input type="number" id="numB" class="w-24 p-2 border-2 border-blue-300 rounded text-center text-xl" placeholder="Angka">
+            </div>
+            <div class="text-center mb-6">
+                <button onclick="hitungDasar()" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full shadow-lg transform hover:scale-105 transition">HITUNG!</button>
+            </div>
+            <div id="result1" class="text-center text-xl font-bold mb-4"></div>
+            <div id="visual1" class="flex flex-wrap justify-center gap-4"></div>
+        </div>
+
+        <!-- Content Tab 2: Eksplorasi Pecahan -->
+        <div id="content2" class="tab-content hidden bg-white p-6 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-bold text-center mb-4 text-purple-500">Eksplorasi Pecahan</h2>
+            <div class="flex flex-col items-center justify-center mb-4">
+                <input type="number" id="numExplore" class="w-20 p-2 border-2 border-purple-300 rounded text-center text-xl mb-2" placeholder="Atas">
+                <div class="w-20 h-1 bg-black mb-2"></div>
+                <input type="number" id="denExplore" class="w-20 p-2 border-2 border-purple-300 rounded text-center text-xl" placeholder="Bawah">
+            </div>
+            <div class="text-center mb-6">
+                <button onclick="eksplorasiPecahan()" class="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-6 rounded-full shadow-lg transform hover:scale-105 transition">TAMPILKAN VISUAL!</button>
+            </div>
+            <div id="visual2" class="flex justify-center mb-4"></div>
+            <div id="exploreOptions" class="hidden text-center space-x-2">
+                <button onclick="showDesimal()" class="bg-indigo-400 text-white px-4 py-2 rounded shadow">Lihat Desimal</button>
+                <button onclick="showPersen()" class="bg-indigo-400 text-white px-4 py-2 rounded shadow">Lihat Persen</button>
+                <button onclick="showSenilai()" class="bg-indigo-400 text-white px-4 py-2 rounded shadow">Pecahan Senilai</button>
+            </div>
+            <div id="exploreResult" class="text-center mt-4 text-xl font-bold text-gray-700"></div>
+        </div>
+
+        <!-- Content Tab 3: Operasi & Perbandingan Pecahan -->
+        <div id="content3" class="tab-content hidden bg-white p-6 rounded-lg shadow-lg">
+             <h2 class="text-2xl font-bold text-center mb-4 text-orange-500">Operasi & Bandingkan Pecahan</h2>
+             <div class="flex justify-center items-center space-x-6 mb-4">
+                <div class="flex flex-col items-center">
+                    <input type="number" id="numF1" class="w-16 p-2 border-2 border-orange-300 rounded text-center text-lg mb-1">
+                    <div class="w-16 h-1 bg-black mb-1"></div>
+                    <input type="number" id="denF1" class="w-16 p-2 border-2 border-orange-300 rounded text-center text-lg">
+                </div>
+                <select id="operatorF" class="p-2 border-2 border-orange-300 rounded text-center text-xl bg-yellow-100 font-bold">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="x">x</option>
+                    <option value=":">:</option>
+                    <option value=">">&gt;</option>
+                    <option value="<">&lt;</option>
+                    <option value="=">=</option>
+                </select>
+                <div class="flex flex-col items-center">
+                    <input type="number" id="numF2" class="w-16 p-2 border-2 border-orange-300 rounded text-center text-lg mb-1">
+                    <div class="w-16 h-1 bg-black mb-1"></div>
+                    <input type="number" id="denF2" class="w-16 p-2 border-2 border-orange-300 rounded text-center text-lg">
+                </div>
+             </div>
+             <div class="text-center mb-6">
+                <button onclick="hitungPecahan()" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-6 rounded-full shadow-lg transform hover:scale-105 transition">HITUNG!</button>
+            </div>
+            <div id="result3" class="text-center text-xl font-bold mb-4"></div>
+            <div id="visual3" class="flex flex-col md:flex-row justify-center items-center gap-8"></div>
+        </div>
+    </div>
+    
+    <!-- Link to the separated Javascript -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+
+/* Tab Styling */
+.active-tab {
+    background-color: white;
+    color: #2563eb;
+    border-bottom: 2px solid white;
+}
+.tab-btn:not(.active-tab) {
+    background-color: #bfdbfe;
+    color: #1e3a8a;
+}
+
+/* Kelereng Styling (Operasi Dasar) */
+.kelereng {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 10px 10px, #5eead4, #0f766e);
+    box-shadow: inset -3px -3px 6px rgba(0,0,0,0.3), 2px 2px 4px rgba(0,0,0,0.2);
+    display: inline-block;
+    margin: 2px;
+}
+.kelereng-coret {
+    background: radial-gradient(circle at 10px 10px, #cbd5e1, #64748b);
+    opacity: 0.5;
+    position: relative;
+}
+.kelereng-coret::after {
+    content: 'X';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ef4444;
+    font-weight: bold;
+}
+.kelompok {
+    border: 2px dashed #3b82f6;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #eff6ff;
+    display: flex;
+    flex-wrap: wrap;
+    width: fit-content;
+    max-width: 200px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Batang Cokelat/Pecahan Styling */
+.fraction-bar {
+    display: flex;
+    border: 2px solid #8b5cf6;
+    height: 40px;
+    width: 300px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.fraction-fill {
+    background-color: #a78bfa;
+    border-right: 1px solid #ddd;
+}
+.fraction-empty {
+    background-color: #f3f4f6;
+    border-right: 1px solid #ddd;
+}
